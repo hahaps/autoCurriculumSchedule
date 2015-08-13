@@ -1,14 +1,14 @@
-# autoCurriculumSchedule
-An program use GA(genetic algorithm) to schedule curriculum  automaticly
+# 自动排课系统
+一个基于遗传算法实现的自动排课系统
 
-### Goals
-* Automaticly - Schedule curriculum automaticly.
-* Quickly - Run code with a shorter time.
-* Less memory cost - Less than 1G memory cost.
+### 目标
+* 自动 - 自动排课，减少人工干预
+* 快速 - 耗时短，目前20个班级的通常课程（小学、初中、高中）30秒内完成
+* 低内存消耗 - 内存尽量控制在1G以内
 
-### Run
-1. Install and config java environment.
-2. Run: `bin/javaRun`
+### 运行
+1. 安装并配置java环境
+2. 运行: `bin/javaRun`
 
 ### Todo:
 * Wiki
