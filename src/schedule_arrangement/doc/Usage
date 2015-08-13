@@ -1,0 +1,16 @@
+使用方法
+提供了两个模板，Template和ConstraintTemplate，
+Template存放每节课所上的班级的年级id，班级id，教师id，教师名称，
+课程名称，课程id，课程每周上的数，是否是主课。
+ConstraintTemplate存放限制条件类型，违约值，和此类限制条件的JSON格式的meta data数据。
+0: 某课程最多同时上的班级数
+1: 上课的黄金时间段集合
+2: 课程步长设置集合
+3: 和班课
+4: 固定课程
+5: 无课时间
+6: 连课
+使用时
+ArrayList<TimeTable> list = Management.scheduleAll(ArrayList<Template> list_1, ArrayList<ConstraintTemplate> list_2,
+				course_each_day, day_each_week, course_start);
+TimeTable存放了class_id,以及课程安排数组timetable，存放的是课程id。

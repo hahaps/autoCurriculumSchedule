@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# define home dir.
+RUNHOME=`pwd`
+# include org.json.jar
+TCLSPATH="$CLASSPATH":"$RUNHOME"/lib/org.json.jar
+
+# to home dir
+cd "$RUNHOME"
+# compile *.java
+javac -classpath "$TCLSPATH" -d "$RUNHOME"/classes src/com/algorithm/course/scheduling/automatic/*.java
+
+# go to the classes path
+cd "$RUNHOME"/classes
+# run Main func.
+#java -classpath "$TCLSPATH" -Xms40m -Xmx1024m com.algorithm.course.scheduling.automatic.Main > "$RUNHOME"/result
+java -classpath "$TCLSPATH" -Xms40m -Xmx1024m com.algorithm.course.scheduling.automatic.Main

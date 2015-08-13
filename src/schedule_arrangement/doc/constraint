@@ -1,0 +1,188 @@
+0
+{max_allow: 5, course_id: 9}
+{max_allow: 3, course_id: 12}
+
+1
+{best_position: [0, 1]}
+
+2
+{pace: 2, course_id: 0}
+{pace: 2, course_id: 1}
+{pace: 2, course_id: 2}
+{pace: 2, course_id: 3}
+{pace: 2, course_id: 4}
+{pace: 2, course_id: 5}
+{pace: 2, course_id: 6}
+{pace: 2, course_id: 7}
+{pace: 2, course_id: 15}
+
+3
+{group: [1, 2], course_count: 2, course_id: 9}
+{group: [3, 4], course_count: 2, course_id: 9}
+{group: [5, 6], course_count: 2, course_id: 9}
+{group: [7, 8], course_count: 2, course_id: 9}
+{group: [9, 10], course_count: 2, course_id: 9}
+{group: [11, 12], course_count: 2, course_id: 9}
+{group: [13, 14], course_count: 2, course_id: 9}
+
+4
+{fixed_position: [31], course_id: 16, grade_id: 1, length: 1}
+
+5
+{undesired_position: [1,2,3],teacher_id: 1}
+
+6
+{length: 2, course_id: 12, class_id: 1, count: 1}
+{length: 2, course_id: 12, class_id: 2, count: 1}
+{length: 2, course_id: 12, class_id: 3, count: 1}
+{length: 2, course_id: 12, class_id: 4, count: 1}
+{length: 2, course_id: 12, class_id: 5, count: 1}
+{length: 2, course_id: 12, class_id: 6, count: 1}
+{length: 2, course_id: 12, class_id: 7, count: 1}
+{length: 2, course_id: 12, class_id: 8, count: 1}
+{length: 2, course_id: 12, class_id: 9, count: 1}
+{length: 2, course_id: 12, class_id: 10, count: 1}
+{length: 2, course_id: 12, class_id: 11, count: 1}
+{length: 2, course_id: 12, class_id: 12, count: 1}
+{length: 2, course_id: 12, class_id: 13, count: 1}
+{length: 2, course_id: 12, class_id: 14, count: 1}
+{length: 2, course_id: 0, class_id: 1, count: 1}
+{length: 2, course_id: 0, class_id: 2, count: 1}
+{length: 2, course_id: 0, class_id: 3, count: 1}
+{length: 2, course_id: 0, class_id: 4, count: 1}
+{length: 2, course_id: 0, class_id: 5, count: 1}
+{length: 2, course_id: 0, class_id: 6, count: 1}
+{length: 2, course_id: 0, class_id: 7, count: 1}
+{length: 2, course_id: 0, class_id: 8, count: 1}
+{length: 2, course_id: 0, class_id: 9, count: 1}
+{length: 2, course_id: 0, class_id: 10, count: 1}
+{length: 2, course_id: 0, class_id: 11, count: 1}
+{length: 2, course_id: 0, class_id: 12, count: 1}
+{length: 2, course_id: 0, class_id: 13, count: 1}
+{length: 2, course_id: 0, class_id: 14, count: 1}
+{length: 2, course_id: 0, class_id: 15, count: 1}
+{length: 2, course_id: 0, class_id: 16, count: 1}
+{length: 2, course_id: 0, class_id: 17, count: 1}
+{length: 2, course_id: 0, class_id: 18, count: 1}
+{length: 2, course_id: 0, class_id: 19, count: 1}
+{length: 2, course_id: 0, class_id: 20, count: 1}
+{length: 2, course_id: 0, class_id: 21, count: 1}
+{length: 2, course_id: 0, class_id: 22, count: 1}
+{length: 2, course_id: 0, class_id: 23, count: 1}
+{length: 2, course_id: 0, class_id: 24, count: 1}
+{length: 2, course_id: 0, class_id: 25, count: 1}
+{length: 2, course_id: 0, class_id: 26, count: 1}
+{length: 2, course_id: 0, class_id: 27, count: 1}
+{length: 2, course_id: 0, class_id: 28, count: 1}
+{length: 2, course_id: 0, class_id: 29, count: 1}
+{length: 2, course_id: 0, class_id: 30, count: 1}
+{length: 2, course_id: 0, class_id: 31, count: 1}
+{length: 2, course_id: 0, class_id: 32, count: 1}
+{length: 2, course_id: 0, class_id: 33, count: 1}
+{length: 2, course_id: 0, class_id: 34, count: 1}
+{length: 2, course_id: 0, class_id: 35, count: 1}
+{length: 2, course_id: 0, class_id: 36, count: 1}
+{length: 2, course_id: 0, class_id: 37, count: 1}
+{length: 2, course_id: 0, class_id: 38, count: 1}
+{length: 2, course_id: 0, class_id: 39, count: 1}
+{length: 2, course_id: 0, class_id: 40, count: 1}
+{length: 2, course_id: 0, class_id: 41, count: 1}
+{length: 2, course_id: 0, class_id: 42, count: 1}
+{length: 2, course_id: 1, class_id: 29, count: 1}
+{length: 2, course_id: 1, class_id: 30, count: 1}
+{length: 2, course_id: 1, class_id: 31, count: 1}
+{length: 2, course_id: 1, class_id: 32, count: 1}
+{length: 2, course_id: 1, class_id: 33, count: 1}
+{length: 2, course_id: 1, class_id: 34, count: 1}
+{length: 2, course_id: 1, class_id: 35, count: 1}
+{length: 2, course_id: 1, class_id: 36, count: 1}
+{length: 2, course_id: 1, class_id: 37, count: 1}
+{length: 2, course_id: 1, class_id: 38, count: 1}
+{length: 2, course_id: 1, class_id: 39, count: 1}
+{length: 2, course_id: 1, class_id: 40, count: 1}
+{length: 2, course_id: 1, class_id: 41, count: 1}
+{length: 2, course_id: 1, class_id: 42, count: 1}
+{length: 2, course_id: 2, class_id: 29, count: 1}
+{length: 2, course_id: 2, class_id: 30, count: 1}
+{length: 2, course_id: 2, class_id: 31, count: 1}
+{length: 2, course_id: 2, class_id: 32, count: 1}
+{length: 2, course_id: 2, class_id: 33, count: 1}
+{length: 2, course_id: 2, class_id: 34, count: 1}
+{length: 2, course_id: 2, class_id: 35, count: 1}
+{length: 2, course_id: 2, class_id: 36, count: 1}
+{length: 2, course_id: 2, class_id: 37, count: 1}
+{length: 2, course_id: 2, class_id: 38, count: 1}
+{length: 2, course_id: 2, class_id: 39, count: 1}
+{length: 2, course_id: 2, class_id: 40, count: 1}
+{length: 2, course_id: 2, class_id: 41, count: 1}
+{length: 2, course_id: 2, class_id: 42, count: 1}
+{length: 2, course_id: 3, class_id: 29, count: 1}
+{length: 2, course_id: 3, class_id: 30, count: 1}
+{length: 2, course_id: 3, class_id: 31, count: 1}
+{length: 2, course_id: 3, class_id: 32, count: 1}
+{length: 2, course_id: 3, class_id: 33, count: 1}
+{length: 2, course_id: 3, class_id: 34, count: 1}
+{length: 2, course_id: 3, class_id: 35, count: 1}
+{length: 2, course_id: 3, class_id: 36, count: 1}
+{length: 2, course_id: 3, class_id: 37, count: 1}
+{length: 2, course_id: 3, class_id: 38, count: 1}
+{length: 2, course_id: 3, class_id: 39, count: 1}
+{length: 2, course_id: 3, class_id: 40, count: 1}
+{length: 2, course_id: 3, class_id: 41, count: 1}
+{length: 2, course_id: 3, class_id: 42, count: 1}
+{length: 2, course_id: 4, class_id: 29, count: 1}
+{length: 2, course_id: 4, class_id: 30, count: 1}
+{length: 2, course_id: 4, class_id: 31, count: 1}
+{length: 2, course_id: 4, class_id: 32, count: 1}
+{length: 2, course_id: 4, class_id: 33, count: 1}
+{length: 2, course_id: 4, class_id: 34, count: 1}
+{length: 2, course_id: 4, class_id: 35, count: 1}
+{length: 2, course_id: 4, class_id: 36, count: 1}
+{length: 2, course_id: 4, class_id: 37, count: 1}
+{length: 2, course_id: 4, class_id: 38, count: 1}
+{length: 2, course_id: 4, class_id: 39, count: 1}
+{length: 2, course_id: 4, class_id: 40, count: 1}
+{length: 2, course_id: 4, class_id: 41, count: 1}
+{length: 2, course_id: 4, class_id: 42, count: 1}
+{length: 2, course_id: 5, class_id: 29, count: 1}
+{length: 2, course_id: 5, class_id: 30, count: 1}
+{length: 2, course_id: 5, class_id: 31, count: 1}
+{length: 2, course_id: 5, class_id: 32, count: 1}
+{length: 2, course_id: 5, class_id: 33, count: 1}
+{length: 2, course_id: 5, class_id: 34, count: 1}
+{length: 2, course_id: 5, class_id: 35, count: 1}
+{length: 2, course_id: 5, class_id: 36, count: 1}
+{length: 2, course_id: 5, class_id: 37, count: 1}
+{length: 2, course_id: 5, class_id: 38, count: 1}
+{length: 2, course_id: 5, class_id: 39, count: 1}
+{length: 2, course_id: 5, class_id: 40, count: 1}
+{length: 2, course_id: 5, class_id: 41, count: 1}
+{length: 2, course_id: 5, class_id: 42, count: 1}
+{length: 2, course_id: 6, class_id: 29, count: 1}
+{length: 2, course_id: 6, class_id: 30, count: 1}
+{length: 2, course_id: 6, class_id: 31, count: 1}
+{length: 2, course_id: 6, class_id: 32, count: 1}
+{length: 2, course_id: 6, class_id: 33, count: 1}
+{length: 2, course_id: 6, class_id: 34, count: 1}
+{length: 2, course_id: 6, class_id: 35, count: 1}
+{length: 2, course_id: 6, class_id: 36, count: 1}
+{length: 2, course_id: 6, class_id: 37, count: 1}
+{length: 2, course_id: 6, class_id: 38, count: 1}
+{length: 2, course_id: 6, class_id: 39, count: 1}
+{length: 2, course_id: 6, class_id: 40, count: 1}
+{length: 2, course_id: 6, class_id: 41, count: 1}
+{length: 2, course_id: 6, class_id: 42, count: 1}
+{length: 2, course_id: 7, class_id: 29, count: 1}
+{length: 2, course_id: 7, class_id: 30, count: 1}
+{length: 2, course_id: 7, class_id: 31, count: 1}
+{length: 2, course_id: 7, class_id: 32, count: 1}
+{length: 2, course_id: 7, class_id: 33, count: 1}
+{length: 2, course_id: 7, class_id: 34, count: 1}
+{length: 2, course_id: 7, class_id: 35, count: 1}
+{length: 2, course_id: 7, class_id: 36, count: 1}
+{length: 2, course_id: 7, class_id: 37, count: 1}
+{length: 2, course_id: 7, class_id: 38, count: 1}
+{length: 2, course_id: 7, class_id: 39, count: 1}
+{length: 2, course_id: 7, class_id: 40, count: 1}
+{length: 2, course_id: 7, class_id: 41, count: 1}
+{length: 2, course_id: 7, class_id: 42, count: 1}
