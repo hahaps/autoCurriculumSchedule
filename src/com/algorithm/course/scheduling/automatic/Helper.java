@@ -13,7 +13,7 @@ public class Helper {
 
 	public static ArrayList<Template> read_data(String mode) {
 		ArrayList<Template> templates = new ArrayList<Template>();
-		File f = new File("./src/schedule_arrangement/doc/" + mode);
+		File f = new File("../src/schedule_arrangement/doc/" + mode);
 		if (f.exists()) {
 			String s = null;
 			try {
@@ -52,7 +52,7 @@ public class Helper {
 
 	public static Map<Integer, ConstraintTemplate> read_constraint(String path) {
 		Map<Integer, ConstraintTemplate> templates = new HashMap<Integer, ConstraintTemplate>();
-		File f = new File("/home/hhp/eclipse/workspace/Auto_schedul/src/microchild/schedule_arrangement/doc/" + path);
+		File f = new File("src/schedule_arrangement/doc/" + path);
 		if (f.exists()) {
 			String s = null;
 			try {

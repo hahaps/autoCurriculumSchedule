@@ -33,7 +33,7 @@ public class Group {
 	 * 
 	 * @param week_course_count
 	 */
-	public void initTimeTable(course_each_day, day_each_week) {
+	public void initTimeTable(int course_each_day, int day_each_week) {
 		this.bestRecord = new TimeTable[this.classes.size()];
 		int counter = 0;
 		for (Class cls : this.classes) {

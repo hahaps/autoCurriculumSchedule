@@ -8,14 +8,14 @@ public class Main {
 
 	public static void testPer(ArrayList<Template> templates,
 			Map<Integer, ConstraintTemplate> constraints, int course_each_day,
-			int day_each_week, int morning_course_count) throws SchedulExceptions {
+			int day_each_week) throws SchedulExceptions {
 		long start = System.currentTimeMillis();
 		int class_count_each_week = course_each_day * day_each_week;
 		// 初始化所有班级
 		Collection<Class> classes = Util.init_all_classes(templates,
-				class_count_each_week, morning_course_count);
+				course_each_day, day_each_week);
 		// 初始化聚类分组
-		Group[] groups = Management.initGroup(classes, course_each_day, day_each_week, morning_course_count);
+		Group[] groups = Management.initGroup(classes, course_each_day, day_each_week);
 		// 排课
 		for (int i = 0; i < groups.length; i++) {
 			Management.initGroupConstraint(groups, constraints, i);
@@ -34,7 +34,7 @@ public class Main {
 						+ "班重排==========");
 				Management.schedulePer(Helper.read_data("testData"),
 						tables, groups[s].getClasses().get(0).getClass_mode(),
-						Helper.read_constraint("constraint"), course_each_day, day_each_week, morning_course_count);
+						Helper.read_constraint("constraint"), course_each_day, day_each_week);
 			}
 		}
 	}
@@ -44,9 +44,7 @@ public class Main {
 	 * @throws SchedulExceptions
 	 */
 	public static void main(String[] args) throws SchedulExceptions {
-		//Management.scheduleAll(Helper.read_data("testData"),
-		//		Helper.read_constraint("constraint"), 8, 5);
-		Management.scheduleAll(Helper.read_data("testData"),
-				Helper.read_constraint("constraint"), 8, 5, 4);
+        Management.scheduleAll(Helper.read_data("testData"),
+                Helper.read_constraint("constraint"), 8, 5);
 	}
 }

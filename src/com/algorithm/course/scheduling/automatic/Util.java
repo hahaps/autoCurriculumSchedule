@@ -81,7 +81,7 @@ public class Util {
 
 	public static void initGroupForPer(Collection<Class> classes,
 			Group[] groups, ArrayList<TimeTable> tables, int remanage_class_id,
-			int course_each_day, int day_each_week, int moring_course_count) throws SchedulExceptions {
+			int course_each_day, int day_each_week) throws SchedulExceptions {
 		groups[0] = new Group();
 		groups[0].setBestRecord(classes.size() - 1);
 		groups[1] = new Group();
@@ -96,7 +96,7 @@ public class Util {
 									HandleType.RUN_ERROR_AT_TOO_MANY_CLASS);
 						}
 						groups[1].getClasses().add(cls);
-						groups[1].initTimeTable(course_each_day, day_each_week, moring_course_count);
+						groups[1].initTimeTable(course_each_day, day_each_week);
 					} else {
 						groups[0].getClasses().add(cls);
 						groups[0].getBestRecord()[groups[0].getClasses().size() - 1] = table;
@@ -117,9 +117,9 @@ public class Util {
 	 * @param groups
 	 * @param week_course_count
 	 */
-	public static void initialTimeTable(Group[] groups, int week_course_count) {
+	public static void initialTimeTable(Group[] groups, int class_each_day, int day_each_week) {
 		for (int i = 0; i < groups.length; i++) {
-			groups[i].initTimeTable(week_course_count);
+			groups[i].initTimeTable(class_each_day, day_each_week);
 		}
 	}
 

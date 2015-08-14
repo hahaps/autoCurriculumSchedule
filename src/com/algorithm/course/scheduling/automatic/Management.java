@@ -25,24 +25,24 @@ public class Management {
 	public static ArrayList<TimeTable> scheduleAll(
 			ArrayList<Template> templates,
 			Map<Integer, ConstraintTemplate> constraints, int course_each_day,
-			int day_each_week, int moring_course_count) throws SchedulExceptions {
+			int day_each_week) throws SchedulExceptions {
 		long starts = System.currentTimeMillis();
 		int class_count_each_week = course_each_day * day_each_week;
 		ArrayList<TimeTable> timetables = new ArrayList<TimeTable>();
 		// Initial all classes
 		Collection<Class> classes = Util.init_all_classes(templates,
-                class_count_each_week, moring_course_count);
+                course_each_day, day_each_week);
 		// Checking
 		Util.check_class_data(classes, course_each_day, day_each_week);
 		Util.check_constraint_data(constraints);
 		// Initial group
-		Group[] groups = initGroup(classes, course_each_day, day_each_week, moring_course_count);
+		Group[] groups = initGroup(classes, course_each_day, day_each_week);
 		// Scheduling
 		for (int i = 0; i < groups.length; i++) {
 			initGroupConstraint(groups, constraints, i);
 			//management(groups[i], course_each_day, day_each_week, 0, true);
 		}
-		attemptInitialTimeTable(groups, course_each_day, day_each_week, moring_course_count);
+		//attemptInitialTimeTable(groups, course_each_day, day_each_week);
 		for (int i = 0;i < groups.length; i ++) {
 			Util.loadGetClassTogether(groups, i);
 			Util.loadSameTeacher(groups, i);
@@ -68,18 +68,18 @@ public class Management {
 	public static TimeTable schedulePer(ArrayList<Template> templates,
 			ArrayList<TimeTable> tables, int remanage_class_id,
 			Map<Integer, ConstraintTemplate> constraints, int course_each_day,
-			int day_each_week, int moring_course_count) throws SchedulExceptions {
+			int day_each_week) throws SchedulExceptions {
 		long starts = System.currentTimeMillis();
 		int class_count_each_week = course_each_day * day_each_week;
 		ArrayList<TimeTable> timetables = new ArrayList<TimeTable>();
 		Group[] groups = new Group[2];
 		Collection<Class> classes = Util.init_all_classes(templates,
-				class_count_each_week, moring_course_count);
+				course_each_day, day_each_week);
 		Util.initGroupForPer(classes, groups, tables, remanage_class_id,
-				class_count_each_week);
+				course_each_day, day_each_week);
 		// scheduling
 		initGroupConstraint(groups, constraints, 1);
-		groups[1].initTimeTable(course_each_day, day_each_week, moring_course_count);
+		groups[1].initTimeTable(course_each_day, day_each_week);
 		management(groups[1], course_each_day, day_each_week, 1, false);
 		// Get main timetables
 		for (int j = 0; j < groups[1].getBestRecord().length; j++) {
@@ -104,9 +104,10 @@ public class Management {
 	 * @return
 	 */
 	public static Group[] initGroup(Collection<Class> classes,
-			int course_each_day, int day_each_week, int moring_course_count) {
+			int course_each_day, int day_each_week) {
 		ArrayList<Group> groups = new ArrayList<Group>();
 		// Dfine.THRESHOLD * class_count_each_week
+        int class_count_each_week = course_each_day * day_each_week;
 		for (Class cls : classes) {
 			int max_position = 0;
 			int max = 0;
@@ -133,7 +134,7 @@ public class Management {
 		}
 		Group[] new_groups = groups.toArray(new Group[0]);
 		// Initial timetables
-		Util.initialTimeTable(new_groups, course_each_day, day_each_week, moring_course_count);
+		Util.initialTimeTable(new_groups, course_each_day, day_each_week);
 		return new_groups;
 	}
 
@@ -317,12 +318,12 @@ public class Management {
 				}
 			}
 		}
-		Iterator<ArrayList<TeacherWithCourse>> keys = tm.keys().iterator();
+		/*Iterator<ArrayList<TeacherWithCourse>> keys = tm.keys().iterator();
 		while(keys.hasNext()) {
-			int tcId = vals.next();
+			int tcId = keys.next();
             TeacherWithCourse tw = tm.get(tcId);
 			
-		}
+		}*/
 	}
 
 	/***
