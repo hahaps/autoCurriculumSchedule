@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /***
  * 聚类分组
  * 
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * @version 0.1
  */
 public class Group {

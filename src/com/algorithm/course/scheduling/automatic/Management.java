@@ -3,18 +3,18 @@ package com.algorithm.course.scheduling.automatic;
 import java.util.*;
 
 /***
- * 算法主体
+ * Main
  * 
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * @version 0.1
  */
 public class Management {
 
-	// 随机数产生器
+	// random number generator
 	public static Random rand = new Random(System.currentTimeMillis());
 
 	/***
-	 * 对所有的班级集合进行排课
+	 * Managet all course
 	 * 
 	 * @param templates
 	 * @param constraints
@@ -29,15 +29,15 @@ public class Management {
 		long starts = System.currentTimeMillis();
 		int class_count_each_week = course_each_day * day_each_week;
 		ArrayList<TimeTable> timetables = new ArrayList<TimeTable>();
-		// 初始化所有班级
+		// Initial all classes
 		Collection<Class> classes = Util.init_all_classes(templates,
                 class_count_each_week, moring_course_count);
-		// 初步检测数据的正确性
+		// Checking
 		Util.check_class_data(classes, course_each_day, day_each_week);
 		Util.check_constraint_data(constraints);
-		// 初始化聚类分组
+		// Initial group
 		Group[] groups = initGroup(classes, course_each_day, day_each_week, moring_course_count);
-		// 排课
+		// Scheduling
 		for (int i = 0; i < groups.length; i++) {
 			initGroupConstraint(groups, constraints, i);
 			//management(groups[i], course_each_day, day_each_week, 0, true);
@@ -48,7 +48,7 @@ public class Management {
 			Util.loadSameTeacher(groups, i);
 			management(groups[i], course_each_day, day_each_week, 0, true);
 		}
-		// 分离出最终的课表
+		// Get main timetables
 		for (int i = 0; i < groups.length; i++) {
 			for (int j = 0; j < groups[i].getBestRecord().length; j++) {
 				TimeTable table = new TimeTable(class_count_each_week);
@@ -77,11 +77,11 @@ public class Management {
 				class_count_each_week, moring_course_count);
 		Util.initGroupForPer(classes, groups, tables, remanage_class_id,
 				class_count_each_week);
-		// 排课
+		// scheduling
 		initGroupConstraint(groups, constraints, 1);
 		groups[1].initTimeTable(course_each_day, day_each_week, moring_course_count);
 		management(groups[1], course_each_day, day_each_week, 1, false);
-		// 分离出最终的课表
+		// Get main timetables
 		for (int j = 0; j < groups[1].getBestRecord().length; j++) {
 			TimeTable table = new TimeTable(class_count_each_week);
 			table.setClass_id(groups[1].getBestRecord()[j].getClass_id());
@@ -97,7 +97,7 @@ public class Management {
 	}
 
 	/***
-	 * 班级聚类分组
+	 * Group classes
 	 * 
 	 * @param classes
 	 * @param class_count_each_week
@@ -106,7 +106,6 @@ public class Management {
 	public static Group[] initGroup(Collection<Class> classes,
 			int course_each_day, int day_each_week, int moring_course_count) {
 		ArrayList<Group> groups = new ArrayList<Group>();
-		// 某组内任何一个班级的课程不会与其他的班级课程课程数超过
 		// Dfine.THRESHOLD * class_count_each_week
 		for (Class cls : classes) {
 			int max_position = 0;
@@ -133,13 +132,13 @@ public class Management {
 			}
 		}
 		Group[] new_groups = groups.toArray(new Group[0]);
-		// 初始话课程表
+		// Initial timetables
 		Util.initialTimeTable(new_groups, course_each_day, day_each_week, moring_course_count);
 		return new_groups;
 	}
 
 	/***
-	 * 遗传算法完成排课
+	 * GA main
 	 * 
 	 * @param group
 	 * @param course_each_day
@@ -151,9 +150,9 @@ public class Management {
 			throws SchedulExceptions {
 		TimeTable[][] timetables = new TimeTable[Define.GROUP_SIZE][group
 				.getClasses().size()];
-		// 初始化课表。
+		// Initial courses
 		init(timetables, group, course_each_day, day_each_week);
-		// 计算违约值。
+		// Calculate default values
 		int week_course_count = day_each_week * course_each_day;
 		double[] fitness = caculateConstraintValue(timetables, group,
 				course_each_day, day_each_week);
@@ -169,14 +168,14 @@ public class Management {
 		while (counter < Define.MAX_UNM) {
 			group.PMULTATION = ss_PMULTATION.run(counter);
 			group.PXOVER = ss_PXOVER.run(counter);
-			// 选择遗传母体
+			// Get parent
 			TimeTable[][] best_m = selectBestMum(group, fitness, timetables,
 					week_course_count);
-			// 交叉
+			// crossover
 			crossover(group, best_m, timetables, week_course_count);
-			// 变异
+			// variation
 			variation(group, timetables, course_each_day, day_each_week);
-			// 计算适应度
+			// Calculate fitness
 			fitness = caculateConstraintValue(timetables, group,
 					course_each_day, day_each_week);
 			if (group.getMinimux_fitness() <= 0) {
@@ -205,7 +204,7 @@ public class Management {
 	}
 
 	/***
-	 * 初始化聚类组排课限制条件
+	 * Initial constraints
 	 * 
 	 * @param groups
 	 * @param constraints
@@ -259,7 +258,7 @@ public class Management {
 	}
 
 	/***
-	 * 初始化课程表
+	 * Initial timetables
 	 * 
 	 * @param timetables
 	 * @param group
@@ -327,7 +326,7 @@ public class Management {
 	}
 
 	/***
-	 * 将固定课程，副课，连课全部按禁忌搜索策略固定分配，其它课程随机分配
+	 * initial courses
 	 * 
 	 * @param tables
 	 * @param group
@@ -344,7 +343,6 @@ public class Management {
 					* day_each_week, group.getBestRecord()[cls_counter]);
 			cls_counter ++;
 			tables[course_counter].setClass_id(cls.getClass_mode());
-			// 固定部分自习课
 			int couter = (course_each_day * day_each_week - cls
 					.getCourseCount()) / day_each_week;
 			for (int q = 0; q < couter; q++) {
@@ -356,7 +354,6 @@ public class Management {
 
             Map<Integer, ArrayList<Integer>> none_pos = group.getConstraint().getUndesire_postion();
 			// ////////////////////////////////////////////////////////////////////////////
-			// 合班课
 			Map<Integer, Integer> courseCount_0 = Util.initCourseCount(
 					cls.getCourses(), 0);
 			if (group.getConstraint().getFixed_position()
@@ -383,7 +380,6 @@ public class Management {
 
 			// /////////////////////////////////////////////////////////
             ArrayList<UnfitPosition> ups = new ArrayList<UnfitPosition>();
-			// 副课
 			Map<Integer, Integer> courseCount_z = Util.initCourseCount(
 					cls.getCourses(), -2);
 
@@ -423,8 +419,8 @@ public class Management {
                             if (counter > course_each_day * day_each_week * course_each_day) {
                                 String errorInfo="";//"{\"class\": " + cls.getClass_mode()+ ", \"grade\":" + cls.getGrade()+ "}";
                                 if(Util.dataConvent!=null){
-                                    errorInfo+="班级："+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
-                                    errorInfo+="年级："+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
+                                    errorInfo+="Class: "+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
+                                    errorInfo+="Grade: "+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
                                 }
                                 throw new SchedulExceptions(
                                         HandleType.RUN_ERROR_AT_INIT_TIME_TABLE,
@@ -468,8 +464,8 @@ public class Management {
                             if (counter > course_each_day * day_each_week) {
                                 String errorInfo="";//"{\"class\": " + cls.getClass_mode()+ ", \"grade\":" + cls.getGrade()+ "}";
                                 if(Util.dataConvent!=null){
-                                    errorInfo+="班级："+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
-                                    errorInfo+="年级："+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
+                                    errorInfo+="Class: "+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
+                                    errorInfo+="Grade: "+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
                                 }
 								throw new SchedulExceptions(
 										HandleType.RUN_ERROR_AT_INIT_TIME_TABLE,
@@ -515,8 +511,8 @@ public class Management {
 						if (i < 0 && row == 0) {
                             String errorInfo="";//"{\"class\": " + cls.getClass_mode()+ ", \"grade\":" + cls.getGrade()+ "}";
                             if(Util.dataConvent!=null){
-                                errorInfo+="班级："+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
-                                errorInfo+="年级："+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
+                                errorInfo+="Class: "+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
+                                errorInfo+="Grade: "+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
                             }
 							throw new SchedulExceptions(
 									HandleType.RUN_ERROR_AT_INIT_TIME_TABLE,
@@ -528,7 +524,6 @@ public class Management {
 			}
 
 			// /////////////////////////////////////////////////////////
-			// 连课
 			Map<Integer, Integer> courseCount_2 = Util.initCourseCount(
 					cls.getCourses(), 2);
 			Iterator<Integer> iter = courseCount_0.keySet().iterator();
@@ -588,8 +583,8 @@ public class Management {
 					if (counter >= course_each_day * day_each_week) {
                         String errorInfo="";//"{\"class\": " + cls.getClass_mode()+ ", \"grade\":" + cls.getGrade()+ "}";
                         if(Util.dataConvent!=null){
-                            errorInfo+="班级："+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
-                            errorInfo+="年级："+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
+                            errorInfo+="Class: "+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
+                            errorInfo+="Grade: "+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
                         }
 						throw new SchedulExceptions(
 								HandleType.CHECK_ERROR_AT_COURSE_CONTINUE_COURSE,
@@ -610,7 +605,6 @@ public class Management {
                 }
 			}
 			// /////////////////////////////////////////////////////////
-			// 其它
 			Map<Integer, Integer> courseCount = Util.initCourseCount(
 					cls.getCourses(), 1);
 			Iterator<Integer> iter_2 = courseCount_0.keySet().iterator();
@@ -628,8 +622,8 @@ public class Management {
 					if (i >= tables[course_counter].getTimetable().length) {
                         String errorInfo="";//"{\"class\": " + cls.getClass_mode()+ ", \"grade\":" + cls.getGrade()+ "}";
                         if(Util.dataConvent!=null){
-                            errorInfo+="班级："+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
-                            errorInfo+="年级："+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
+                            errorInfo+="Class: "+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
+                            errorInfo+="Grade: "+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
                         }
 						throw new SchedulExceptions(
 								HandleType.RUN_ERROR_AT_INIT_TIME_TABLE,
@@ -640,8 +634,8 @@ public class Management {
 				if (i >= tables[course_counter].getTimetable().length) {
                     String errorInfo="";//"{\"class\": " + cls.getClass_mode()+ ", \"grade\":" + cls.getGrade()+ "}";
                     if(Util.dataConvent!=null){
-                        errorInfo+="班级："+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
-                        errorInfo+="年级："+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
+                        errorInfo+="Clss: "+Util.dataConvent.getClassInfo(cls.getClass_mode()).values();
+                        errorInfo+="Grade: "+Util.dataConvent.getGradeInfo(cls.getGrade()).values();
                     }
 					throw new SchedulExceptions(
 							HandleType.RUN_ERROR_AT_INIT_TIME_TABLE,
@@ -661,7 +655,7 @@ public class Management {
 	}
 
 	/***
-	 * 计算违约分
+	 * Caculate default values
 	 * 
 	 * @param timetables
 	 * @param group
@@ -703,7 +697,7 @@ public class Management {
 	}
 
 	/***
-	 * 寻找最好记录，如果比历史记录好，则替换
+	 * Get best record
 	 * 
 	 * @param timtables
 	 * @param group
@@ -726,7 +720,7 @@ public class Management {
 	}
 
 	/***
-	 * 利用轮盘赌算法，选择遗传母体
+	 * Get parent with roulette algorithm
 	 * 
 	 * @param group
 	 * @param fitness
@@ -776,7 +770,7 @@ public class Management {
 	}
 
 	/***
-	 * 实行基因交叉运算
+	 * crossover
 	 * 
 	 * @param group
 	 * @param best_m
@@ -788,12 +782,9 @@ public class Management {
 
 		int length = group.getClasses().size();
 		for (int i = 0; i < Define.GROUP_SIZE / 2; i++) {
-			// 选择一对母体
 			int x = rand.nextInt(best_m.length);
 			int y = rand.nextInt(best_m.length);
-			// 选择基因交换点
 			int point = rand.nextInt(length);
-			// 基因交换
 			timetables[2 * i] = new TimeTable[length];
 			timetables[2 * i + 1] = new TimeTable[length];
 			for (int m = 0; m < length; m++) {
@@ -823,7 +814,7 @@ public class Management {
 	}
 
 	/***
-	 * 实行基因变异运算
+	 * variation
 	 * 
 	 * @param group
 	 * @param timetables
@@ -835,13 +826,10 @@ public class Management {
 		int size = (int) Math.floor(Define.GROUP_SIZE * Define.PMULTATION);
 		int length = course_each_day * day_each_week;
 		for (int i = 0; i < size; i++) {
-			// 选择变异个体
 			int x = rand.nextInt(timetables.length);
-			// 选择变异的基因
 			for (int m = 0; m < group.getClasses().size(); m++) {
 				int ex_x = rand.nextInt(length);
 				int ex_y = rand.nextInt(length);
-				// 变异时，变异点上的信息互换
 				for (int j = 0; j < timetables[x].length; j++) {
 					int tmp_1 = timetables[x][j].getTimetable()[ex_x];
 					int tmp_2 = timetables[x][j].getTimetable()[ex_y];

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /***
  * 限制条件模板
  * 
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * @version 0.1
  */
 public class ConstraintTemplate {

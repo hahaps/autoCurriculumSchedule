@@ -5,7 +5,7 @@ import java.util.*;
 /***
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * 
  */
 public class Util {

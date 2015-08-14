@@ -1,21 +1,18 @@
 package com.algorithm.course.scheduling.automatic;
 
 /***
- * 排课结果信息汇总
+ * Exception
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * 
  */
 public class SchedulExceptions extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	// 排课结果类型
 	private HandleType type = HandleType.SUCCESS_DONE;
-	// 结果类型日志
 	private String message = null;
-	// 结果类型附加信息
 	private String metadata = null;
 
 	/***
@@ -54,7 +51,7 @@ public class SchedulExceptions extends Exception {
 	}
 
 	/***
-	 * 覆盖toString方法
+	 * Overwrite toString
 	 */
 	public String toString() {
 		return super.toString() + "<" + this.type.getcode() + ", "
@@ -62,7 +59,7 @@ public class SchedulExceptions extends Exception {
 	}
 
 	/***
-	 * 获取结果类型日志
+	 * Get message
 	 * 
 	 * @return
 	 */
@@ -71,7 +68,7 @@ public class SchedulExceptions extends Exception {
 	}
 
 	/***
-	 * 获取结果类型附加信息
+	 * Get metadata message
 	 * 
 	 * @return
 	 */
@@ -80,7 +77,7 @@ public class SchedulExceptions extends Exception {
 	}
 
     /**
-     * 排课结果类型
+     * result type
      * @return
      */
     public HandleType getType() {

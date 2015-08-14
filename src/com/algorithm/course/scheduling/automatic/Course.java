@@ -1,29 +1,28 @@
 package com.algorithm.course.scheduling.automatic;
 
 /***
- * 课程
+ * Course specified
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * 
  */
 public class Course {
-	// 课程id
+	// course id
 	private Integer id;
-	// 初始输入的课程id
+	// input course id
 	private Integer course_id;
-	// 课程名称
+	// course name
 	private String course_name;
-	// 授课教师
+	// who teaches this course
 	private Teacher teacher;
-	// 每周该课课节数
+	// course count each week
 	private int times_each_week;
-	// 是否为主课，默认为主课
+	// is main course, default is true
 	private boolean is_main_course = true;
-	// 课程每次授课节数，默认为1节
+	// course count each time, default is 1
 	private int length = 1;
-	// 课程优先级，默认是一个比较大的值，代表优先级低
-	// 如果为 0，则需要初始化该课程
+	// priority of this course
 	private int priority = 1000;
 	
 	public void setPriority(int priority) {
@@ -35,7 +34,7 @@ public class Course {
 	}
 
 	/***
-	 * 课程构造函数
+	 * Instructor of Course
 	 * 
 	 * @param course_id
 	 * @param course_name
@@ -49,7 +48,7 @@ public class Course {
 	}
 
 	/***
-	 * 获取课程每次授课节数
+	 * Get course count each time
 	 * 
 	 * @return
 	 */
@@ -58,7 +57,7 @@ public class Course {
 	}
 
 	/***
-	 * 设置每次授课节数
+	 * Set course count each time
 	 * 
 	 * @param length
 	 */
@@ -67,7 +66,7 @@ public class Course {
 	}
 
 	/***
-	 * 设置该课程是否为主课
+	 * Set course whether is main course
 	 * 
 	 * @param is_main_course
 	 */
@@ -76,7 +75,7 @@ public class Course {
 	}
 
 	/***
-	 * 获取课程id
+	 * Get course id
 	 * 
 	 * @return
 	 */
@@ -85,7 +84,7 @@ public class Course {
 	}
 
 	/***
-	 * 设置课程id
+	 * Set course id
 	 * 
 	 * @param id
 	 */
@@ -94,7 +93,7 @@ public class Course {
 	}
 
 	/***
-	 * 获取课程是否为主课
+	 * Get course whether it is main course
 	 * 
 	 * @return
 	 */
@@ -103,7 +102,7 @@ public class Course {
 	}
 
 	/***
-	 * 设置该课每周所上节数
+	 * Set course count each week
 	 * 
 	 * @param times_each_week
 	 */
@@ -112,7 +111,7 @@ public class Course {
 	}
 
 	/***
-	 * 获取课程实际输入id
+	 * Get course id when input
 	 * 
 	 * @return course id
 	 */
@@ -121,16 +120,16 @@ public class Course {
 	}
 
 	/***
-	 * 获取课程名称
+	 * Get course name
 	 * 
-	 * @return course name
+	 * @return course_name
 	 */
 	public String getCourse_name() {
 		return course_name;
 	}
 
 	/***
-	 * 获取课程教师
+	 * Get course Teacher
 	 * 
 	 * @return teacher
 	 */
@@ -139,7 +138,7 @@ public class Course {
 	}
 
 	/***
-	 * 获取课程每周节数
+	 * Get course count each week
 	 * 
 	 * @return times_each_week
 	 */

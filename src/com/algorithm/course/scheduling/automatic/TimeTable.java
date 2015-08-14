@@ -4,7 +4,7 @@ package com.algorithm.course.scheduling.automatic;
  * 课程表
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  *
  */
 public class TimeTable {

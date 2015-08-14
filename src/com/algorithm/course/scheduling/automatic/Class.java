@@ -3,24 +3,24 @@ package com.algorithm.course.scheduling.automatic;
 import java.util.ArrayList;
 
 /***
- * 班级类
+ * Class specified
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * 
  */
 public class Class {
 
-	// 班级id
+	// class id
 	private Integer class_mode;
-	// 年级id
+	// grade id
 	private Integer grade;
-	// 该班级课程集合
+	// courses map
 	private ArrayList<Course> courses;
 	private int courseCount = 0;
 
 	/***
-	 * 初始化班级的构造函数
+	 * Instructor of class
 	 * 
 	 * @param class_mode
 	 * @param grade
@@ -32,7 +32,7 @@ public class Class {
 	}
 
 	/***
-	 * 获取班级ID
+	 * Get class id
 	 * 
 	 * @return
 	 */
@@ -41,7 +41,7 @@ public class Class {
 	}
 
 	/***
-	 * 获取该班级的年级ID
+	 * Get grade id of this class
 	 * 
 	 * @return
 	 */
@@ -50,7 +50,7 @@ public class Class {
 	}
 
 	/***
-	 * 获取该班级的课程列表
+	 * Get curriculum of this class
 	 * 
 	 * @return
 	 */
@@ -59,7 +59,7 @@ public class Class {
 	}
 
 	/***
-	 * 获取该班级每周课程数量
+	 * Get course count each week for this class
 	 * 
 	 * @return
 	 */

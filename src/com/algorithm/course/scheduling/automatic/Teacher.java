@@ -8,7 +8,7 @@ import java.util.Map;
  * 教师
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  * 
  */
 public class Teacher {

@@ -1,32 +1,32 @@
 package com.algorithm.course.scheduling.automatic;
 
 /***
- * 录入班级课程模板，录入时以（某班）课程为最小单位
+ * Template specified
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  */
 public class Template {
 
-	// 年级id
+	// course id
 	private int grade;
-	// 班级id
+	// class id
 	private int class_id;
-	// 教师id
+	// teacher id
 	private int teacher_id;
-	// 教师名称
+	// teacher name
 	private String teacher_name;
-	// 课程名称
+	// course name
 	private String course_name;
-	// 课程id
+	// course id
 	private int course_id;
-	// 课程每周上的数
+	// course each week
 	private int week_count;
-	// 是否是主课
+	// is main course
 	private boolean is_main;
 
 	/***
-	 * 模板构造函数
+	 * Instructor
 	 * 
 	 * @param grade
 	 * @param class_id
@@ -50,7 +50,7 @@ public class Template {
 	}
 
 	/***
-	 * 获取班级id
+	 * Get course id
 	 * 
 	 * @return
 	 */
@@ -59,7 +59,7 @@ public class Template {
 	}
 
 	/***
-	 * 获取教师id
+	 * Get teacher id
 	 * 
 	 * @return
 	 */
@@ -68,7 +68,7 @@ public class Template {
 	}
 
 	/***
-	 * 获取教师名称
+	 * Get teacher name
 	 * 
 	 * @return
 	 */
@@ -77,7 +77,7 @@ public class Template {
 	}
 
 	/***
-	 * 获取课程每周授课节数
+	 * Get course count each week
 	 * 
 	 * @return
 	 */
@@ -86,7 +86,7 @@ public class Template {
 	}
 
 	/***
-	 * 获取该课是否为主课
+	 * is main course
 	 * 
 	 * @return
 	 */
@@ -95,7 +95,7 @@ public class Template {
 	}
 
 	/***
-	 * 获取课程名称
+	 * Get course name
 	 * 
 	 * @return
 	 */
@@ -104,7 +104,7 @@ public class Template {
 	}
 
 	/***
-	 * 获取课程id
+	 * Get course id
 	 * 
 	 * @return
 	 */
@@ -113,7 +113,7 @@ public class Template {
 	}
 	
 	/***
-	 * 获取年级id
+	 * Get grade id
 	 * 
 	 * @return
 	 */

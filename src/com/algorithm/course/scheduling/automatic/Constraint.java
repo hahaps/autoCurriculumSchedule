@@ -8,7 +8,7 @@ import java.util.Map;
  * 限制条件组集合
  * 
  * @version 0.1
- * @author 李细鹏
+ * @author Li Xipeng, lixipeng@hihuron.com
  */
 public class Constraint {
 	// 默认步长
