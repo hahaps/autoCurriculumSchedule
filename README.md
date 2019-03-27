@@ -20,7 +20,7 @@ The autoCurriculumSchedule code is licensed under the MIT license.
 
 
 **autoCurriculumSchedule:**
-Copyright (c) 2015 Li Xipeng. lixipeng@hihuron.com
+Copyright (c) 2015 Li Xipeng. lixipengs@qq.com
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation 
